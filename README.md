@@ -196,3 +196,116 @@ merged back into the master branch when they are done.
 
   [details]: http://schacon.github.com/git/user-manual.html#using-git-rebase
 
+
+Tags
+----
+
+[Tags][] refer to a specific point in history. This point is fixed for
+any given tag, unlike with branches, which are typically used to track
+ongoing development (i.e. the branch advances through history as
+commits/merges are applied to it).
+
+  [Tags]: http://progit.org/book/ch2-6.html
+
+
+Remote repositories
+-------------------
+
+-   [Setting up a git server](http://progit.org/book/ch4-0.html)
+-   [Using a git host: GitHub](http://progit.org/book/ch4-10.html)
+
+[*Remotes*][] are a mechanism for keeping pointers to repositories at
+specified URLs. The pointer pairs an alias with a URL.
+
+  [*Remotes*]: http://progit.org/book/ch2-5.html
+
+#### Cloning (\~ SVN “checking out”) a repository so you have a local copy  
+  `git clone git://github.com/schacon/simplegit-progit.git`
+
+  -   By default, git will add a remote called `origin`, obtain the
+      `origin/master` branch, and create and switch to a local `master`
+      branch pointing to the same version as `origin/master`.
+
+#### Changing to a remote branch  
+see `git checkout` above
+
+#### Adding a remote (i.e. a pointer to a remote repository)  
+  `git remote add <remote-alias> <URL>`
+
+#### Listing remotes  
+  `git remote -v`
+
+#### Getting data from a remote  
+  `git fetch [<remote-alias>]` (updates remote branches but not local
+  branches; by default, all remote-tracking branches will be updated)
+
+-   To update the local branch that is tracking the remote branch,
+    follow with a merge, or instead use `get pull`
+-   TODO: unclear on difference between `git fetch` and
+    `get fetch --all`. Is it that in the former only remote-tracking
+    branches that currently exist locally will be updated? Or is it that
+    in the former only the "current" remote is updated?
+
+#### Getting and merging data from a remote  
+  `git pull [<remote-alias>]` (equivalent to a fetch followed by a merge)
+
+#### Pushing data to a remote  
+  `git push [<remote-alias> <local-branch-name>[:<remote-branch-name>]]`
+  (remote branch name defaults to the local branch name)
+
+#### Browsing a remote  
+  `git remote show <remote-alias>`
+
+#### Changing the alias to a remote  
+  `git remote rename <remote-alias> <new-alias>`
+
+#### Removing a pointer to a remote  
+  `git remote rm <remote-alias>`
+  
+
+Summary of key commands
+-----------------------
+
+- `init`, `clone` for creating a new local repository (respectively, from scratch 
+  or from a repository at another location)
+- `add`, `stash`, `commit`, `rm`, `mv` for changing the contents of a snapshot in a local repository
+- `branch`, `merge`, `rebase` for updating the structure of the local repository
+- `remote` for managing connections to a remote repository and its branches
+- `checkout` for switching to another branch (local or remote)
+- `fetch`, `pull` (= `fetch` + `merge`), `push` for sharing changes between the local and remote repositories
+
+
+Other notes
+-----------
+
+### Submodules
+
+These are subdirectories within a repository that
+automatically sync with another repository, e.g. for external
+libraries. (details: [1](http://progit.org/book/ch6-6.html), 
+[2](http://book.git-scm.com/5_submodules.html))
+
+### Referring to specific revisions (commits) or ranges of revisions
+
+see http://progit.org/book/ch6-1.html
+
+### Tracing changes
+
+`git blame [-L <start-line>,<end-line>] <file>` shows the requested
+lines of the file along with commit history for those lines
+
+`git bisect` is an interactive tool for narrowing down when a bug
+was introduced by checking out older revisions and allowing the user
+to determine and indicate whether the bug is present ([1](http://progit.org/book/ch6-5.html),
+[2](http://book.git-scm.com/5_finding_issues_-_git_bisect.html))
+
+### Maintaining a private repository from which mature code is released to a public repository
+
+see http://www.braintreepayments.com/devblog/our-git-workflow
+
+
+Software
+--------
+
+-   [Git download](http://git-scm.com/)
+-   [EGit plugin for Eclipse](http://www.eclipse.org/egit/)
