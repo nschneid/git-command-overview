@@ -16,17 +16,17 @@ on a newbie's reading of the [Pro Git book][].
 References and tutorials
 ------------------------
 
+(updated 2018-02-06)
+
 *   [Pro Git Book][]: medium-length tutorial
 *   [Git User's Manual][]: comprehensive documentation and [glossary][]
-*   [Git Reference][]: nice summary of commands
 *   [Git - SVN Crash Course][]: short synopsis of git for an SVN user
-*   [Git Cheat Sheet][]
+*   [Learn Git in Y Minutes][]: synopsis of commands
 
   [Git User's Manual]: http://schacon.github.com/git/user-manual.html
   [glossary]: http://schacon.github.com/git/user-manual.html#glossary
-  [Git Reference]: http://gitref.org/index.html
   [Git - SVN Crash Course]: http://git.or.cz/course/svn.html
-  [Git Cheat Sheet]: http://byte.kde.org/%7Ezrusin/git/git-cheat-sheet-medium.png
+  [Learn Git in Y Minutes]: https://learnxinyminutes.com/docs/git/
 
 Initial configuration
 ---------------------
